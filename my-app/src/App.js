@@ -1,6 +1,6 @@
 import './App.css';
 
-let name = "Yuvraj";
+let name = "<b>Yuvraj</b>"; // React sanitizes any pre HTML...
 function App() {
   return (
     <>
