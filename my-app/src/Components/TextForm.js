@@ -27,13 +27,13 @@ export default function TextForm(props) {
         }
   return (
     <>
-    <div className="container my-3">
-      <h1>{props.heading} </h1>
+    <div className="container my-3" style={{color: props.mode ===`dark` ? `white` : `black`}}>
+      <h1  >{props.heading} </h1>
       <div className="form-floating">
         <textarea
           className="form-control"
           id="floatingTextarea"
-         value ={text} onChange={handleOnChange}></textarea>
+         value ={text} onChange={handleOnChange} style={{backgroundColor: props.mode ==="dark" ? "red" : "white", color:props.mode === 'dark' ? 'white' : 'black'}} rows ="8"></textarea>
       </div>
       <div className="container">
         
@@ -45,9 +45,9 @@ export default function TextForm(props) {
       <p>Total Characters : {text.length}</p>
       <p>Total time to raed : {(0.008 * text.split(" ").length).toPrecision(2)}  Minutes</p>
       </div>
-    <div className="container">
+    <div className={`container bg-${props.mode ==="dark"? "white": "black"}` } style={{color: props.mode ===`dark` ? `white` : `black`}}>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{text.length > 0 ? text : "Enter something to preview"}</p>
     </div>
     </>
   );
